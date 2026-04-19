@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TypeRacer — Typing Speed Test</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <header>
+    <div class="logo">Type<span>Racer</span></div>
+    <div class="tagline">How fast can you type? Find out.</div>
+  </header>
+
+  <!-- Live Stats -->
+  <div class="stats-row">
+    <div class="stat" id="wpmStat">
+      <div class="stat-val" id="wpmVal">0</div>
+      <div class="stat-label">WPM</div>
+    </div>
+    <div class="stat" id="accStat">
+      <div class="stat-val neutral" id="accVal">100%</div>
+      <div class="stat-label">Accuracy</div>
+    </div>
+    <div class="stat" id="timeStat">
+      <div class="stat-val neutral" id="timeVal">—</div>
+      <div class="stat-label">Time Left</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val neutral" id="charVal">0</div>
+      <div class="stat-label">Characters</div>
+    </div>
+  </div>
+
+  <!-- Duration Selector -->
+  <div class="duration-row">
+    <span class="dur-label">Duration:</span>
+    <button class="dur-btn sel" onclick="setDur(15, this)">15s</button>
+    <button class="dur-btn" onclick="setDur(30, this)">30s</button>
+    <button class="dur-btn" onclick="setDur(60, this)">60s</button>
+    <button class="dur-btn" onclick="setDur(120, this)">2min</button>
+  </div>
+
+  <!-- Text Display -->
+  <div class="text-card">
+    <div class="text-display" id="textDisplay"></div>
+  </div>
+
+  <!-- Typing Input -->
+  <div class="input-row">
+    <textarea
+      id="typingInput"
+      placeholder="Click here and start typing…"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <!-- Controls -->
+  <div class="ctrl-row">
+    <button class="btn primary" onclick="resetTest()">↺ New Text</button>
+    <button class="btn" onclick="resetTest()">Restart</button>
+  </div>
+</div>
+
+<!-- Results Overlay -->
+<div class="results-overlay" id="resultsOverlay">
+  <div class="results-modal">
+    <div class="res-label">Your Speed</div>
+    <div class="res-wpm" id="resWpm">0</div>
+    <div class="res-label">words per minute</div>
+    <div class="res-grade" id="resGrade">Keep practicing!</div>
+    <div class="res-grid">
+      <div class="res-stat">
+        <div class="res-stat-val" id="resAcc">0%</div>
+        <div class="res-stat-label">Accuracy</div>
+      </div>
+      <div class="res-stat">
+        <div class="res-stat-val" id="resChars">0</div>
+        <div class="res-stat-label">Characters</div>
+      </div>
+      <div class="res-stat">
+        <div class="res-stat-val" id="resErrors">0</div>
+        <div class="res-stat-label">Errors</div>
+      </div>
+    </div>
+    <div class="res-actions">
+      <button class="btn" onclick="closeResults()">✕ Close</button>
+      <button class="btn primary" onclick="closeResults(); resetTest()">Try Again</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
